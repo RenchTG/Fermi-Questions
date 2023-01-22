@@ -37,7 +37,19 @@ var maxScore = 0
 var score = 0
 
 function getQuestion() {
-    document.getElementById("question").innerHTML = "<p>" + myQuestions[questionNum].question + "</p>"
+    if (questionNum >= myQuestions.length) {
+        document.getElementById("question").innerHTML = "<p> No more questions :( </p>"
+    }
+    else {
+        document.getElementById("question").innerHTML = "<p>" + myQuestions[questionNum].question + "</p>"
+    }
+}
+
+function getStanding() {
+    document.getElementById("standing").innerHTML = `
+    <p> You have ${score} points </p>
+    <p> You are on question ${questionNum+1}/${myQuestions.length} </p>
+    <p> Your current average is ${Math.round((score / maxScore) * 100) / 100} </p>`
 }
 
 function getResults() {
@@ -60,13 +72,16 @@ function getResults() {
     }
     maxScore += 5
     questionNum += 1
+    document.getElementById("answer").value = ""
 }
 
 function generateQuiz() {
     shuffle(myQuestions)
     getQuestion()
+    getStanding()
     document.getElementById("submit").onclick = function(){
         getResults()
+        getStanding()
         getQuestion()
     }
 }
