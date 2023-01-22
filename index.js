@@ -1224,6 +1224,13 @@ function getResults() {
 }
 
 function generateQuiz() {
+    var input = document.getElementById("answer");
+    input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("submit").click();
+    }
+    });
     shuffle(myQuestions)
     getQuestion()
     getStanding()
