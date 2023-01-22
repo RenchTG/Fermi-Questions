@@ -49,7 +49,7 @@ function getStanding() {
     document.getElementById("standing").innerHTML = `
     <p> You have ${score} points </p>
     <p> You are on question ${questionNum+1}/${myQuestions.length} </p>
-    <p> Your current average is ${Math.round((score / maxScore) * 100) / 100} </p>`
+    <p> Your current average is ${Math.round((score / questionNum) * 100) / 100} </p>`
 }
 
 function getResults() {
