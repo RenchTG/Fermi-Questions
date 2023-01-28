@@ -1246,7 +1246,7 @@ function getQuestion() {
         document.getElementById("question").innerHTML = "<p> No more questions :( </p>"
     }
     else {
-        document.getElementById("question").innerHTML = "<p><b>" + myQuestions[questionNum].question + "</b></p>"
+        document.getElementById("question").innerHTML = "<p>" + myQuestions[questionNum].question + "</p>"
     }
 }
 
