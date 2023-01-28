@@ -1,36 +1,26 @@
-file = open("Questions.txt", 'r')
+file = open("RawQuestions.txt", 'r')
 out = open("FormattedQuestions.txt", 'w')
 
-while True:
-    a1 = file.readline().strip()
-    if not a1: break
-    a2 = file.readline().strip()
-    a3 = file.readline().strip()
-    a4 = file.readline().strip()
-    a5 = file.readline().strip()
-    q1 = file.readline().strip()
-    q2 = file.readline().strip()
-    q3 = file.readline().strip()
-    q4 = file.readline().strip()
-    q5 = file.readline().strip()
+questions = ['','','','','']
+answers = ['','','','','']
+done = False
 
-    out.write("{\n")
-    out.write("\tquestion: \"" + q1 + "\",\n")
-    out.write("\tanswer: " + a1 + "\n")
-    out.write("},\n")
-    out.write("{\n")
-    out.write("\tquestion: \"" + q2 + "\",\n")
-    out.write("\tanswer: " + a2 + "\n")
-    out.write("},\n")
-    out.write("{\n")
-    out.write("\tquestion: \"" + q3 + "\",\n")
-    out.write("\tanswer: " + a3 + "\n")
-    out.write("},\n")
-    out.write("{\n")
-    out.write("\tquestion: \"" + q4 + "\",\n")
-    out.write("\tanswer: " + a4 + "\n")
-    out.write("},\n")
-    out.write("{\n")
-    out.write("\tquestion: \"" + q5 + "\",\n")
-    out.write("\tanswer: " + a5 + "\n")
-    out.write("},\n")
+while True:
+    for i in range (0, 5):
+        a = file.readline().strip()
+        if not a:
+            done = True
+            break
+        answers[i] = a
+    if (done): break
+    for j in range (0, 5):
+        q = file.readline().strip()
+        questions[j] = q
+
+    for k in range (0, 5):
+        out.write("{\n")
+        out.write("\tquestion: \"" + questions[k] + "\",\n")
+        out.write("\tanswer: " + answers[k] + "\n")
+        out.write("},\n")
+
+print("Make sure to delete last comma!")

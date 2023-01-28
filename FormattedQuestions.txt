@@ -1,4 +1,44 @@
 {
+	question: "How many zeptoseconds are in a year?",
+	answer: 28
+},
+{
+	question: "The Otis-Albert field in Southwest Kansas extracts gases that average 2.0 percent He. What mass, in grams, of He can be extracted from a well that produces 500 million cubic meters of natural gas?",
+	answer: 9
+},
+{
+	question: "How many trees in the Adirondack Park?",
+	answer: 9
+},
+{
+	question: "Approximately how many commercial airplanes are in the sky over the US right now?",
+	answer: 4
+},
+{
+	question: "How many milligrams comprise the average adult human body?",
+	answer: 5
+},
+{
+	question: "How many snowflakes would it take to completely blanket the entirety of Yale’s central campus with a cubic foot of snow?",
+	answer: 15
+},
+{
+	question: "How many human births have there been since the year 1900 CE?",
+	answer: 10
+},
+{
+	question: "How many acres of land is in Texas?",
+	answer: 8
+},
+{
+	question: "How many prominent figures were assassinated in El Salvador during the 20th century?",
+	answer: 1
+},
+{
+	question: "If the entire population of the US was in line to order a sandwich at Subway at the same time, how long would the lines be?",
+	answer: 4
+},
+{
 	question: "How many Hiroshima bombs would be equivalent in energy to the burritos Chipotle sold in 2015?",
 	answer: 2
 },

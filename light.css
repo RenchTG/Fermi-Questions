@@ -1,0 +1,25 @@
+body {
+    background-color: #1a5aa3;
+    color:white;
+}
+input {
+    width:30%;
+}
+#submit {
+    background-color: rgb(161, 100, 78);
+    color:white;
+    border-radius:8px;
+    padding: 0.25rem;
+    width:8%;
+}
+#mode {
+    width: 7.5%;
+    border-radius:8px;
+    padding: 0.75rem;
+    display: inline;
+    background-color: black;
+    color:white;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

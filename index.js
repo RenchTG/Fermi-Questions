@@ -1,5 +1,45 @@
 var myQuestions = [
     {
+        question: "How many zeptoseconds are in a year?",
+        answer: 28
+    },
+    {
+        question: "The Otis-Albert field in Southwest Kansas extracts gases that average 2.0 percent He. What mass, in grams, of He can be extracted from a well that produces 500 million cubic meters of natural gas?",
+        answer: 9
+    },
+    {
+        question: "How many trees in the Adirondack Park?",
+        answer: 9
+    },
+    {
+        question: "Approximately how many commercial airplanes are in the sky over the US right now?",
+        answer: 4
+    },
+    {
+        question: "How many milligrams comprise the average adult human body?",
+        answer: 5
+    },
+    {
+        question: "How many snowflakes would it take to completely blanket the entirety of Yale’s central campus with a cubic foot of snow?",
+        answer: 15
+    },
+    {
+        question: "How many human births have there been since the year 1900 CE?",
+        answer: 10
+    },
+    {
+        question: "How many acres of land is in Texas?",
+        answer: 8
+    },
+    {
+        question: "How many prominent figures were assassinated in El Salvador during the 20th century?",
+        answer: 1
+    },
+    {
+        question: "If the entire population of the US was in line to order a sandwich at Subway at the same time, how long would the lines be?",
+        answer: 4
+    },
+    {
         question: "How many Hiroshima bombs would be equivalent in energy to the burritos Chipotle sold in 2015?",
         answer: 2
     },
@@ -1161,7 +1201,23 @@ var myQuestions = [
     }
 ]
 
+//function to change between light and dark mode
+var mode = "light"
+function changeMode() {
+    if (mode == "light") {
+        document.getElementById("pagestyle").setAttribute("href","dark.css") 
+        document.getElementById("mode").innerHTML = "Light Mode"
+        mode = "dark"
+    }
+    else {
+        document.getElementById("pagestyle").setAttribute("href","light.css") 
+        document.getElementById("mode").innerHTML = "Dark Mode"
+        mode = "light"
+    }
+}
+
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+//copied function to shuffle question array during setup
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
   
@@ -1184,22 +1240,29 @@ var questionNum = 0
 var maxScore = 0
 var score = 0
 
+//function to cycle through and dipslay the next question
 function getQuestion() {
     if (questionNum >= myQuestions.length) {
         document.getElementById("question").innerHTML = "<p> No more questions :( </p>"
     }
     else {
-        document.getElementById("question").innerHTML = "<p>" + myQuestions[questionNum].question + "</p>"
+        document.getElementById("question").innerHTML = "<p><b>" + myQuestions[questionNum].question + "</b></p>"
     }
 }
 
+//function to display helpful information like points, question #, and average
 function getStanding() {
+    //quick check at the start to prevent 0/0 division
+    var avg = Math.round((score / questionNum) * 100) / 100
+    if (isNaN(avg)) avg = 0
+
     document.getElementById("standing").innerHTML = `
     <p> You have ${score} points </p>
     <p> You are on question ${questionNum+1}/${myQuestions.length} </p>
-    <p> Your current average is ${Math.round((score / questionNum) * 100) / 100} </p>`
+    <p> Your current average is ${avg} </p>`
 }
 
+//function to update points after a question is submitted
 function getResults() {
     var correctAns = myQuestions[questionNum].answer
     var ans = document.getElementById("answer").value
@@ -1223,7 +1286,9 @@ function getResults() {
     document.getElementById("answer").value = ""
 }
 
+//"main" function that handles initial setup and event listeners
 function generateQuiz() {
+    //setup enter key to submit answers
     var input = document.getElementById("answer");
     input.addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
@@ -1231,14 +1296,19 @@ function generateQuiz() {
         document.getElementById("submit").click();
     }
     });
-    shuffle(myQuestions)
-    getQuestion()
-    getStanding()
+
+    //initial setup functions
+    shuffle(myQuestions);
+    getQuestion();
+    getStanding();
+
+    //make the submit button update points, standing, and get a new question
     document.getElementById("submit").onclick = function(){
-        getResults()
-        getStanding()
-        getQuestion()
+        getResults();
+        getStanding();
+        getQuestion();
     }
 }
 
+//run the "main" function
 generateQuiz()
